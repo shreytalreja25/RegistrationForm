@@ -114,7 +114,3 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 
-
-// function ClickButton(){
-//     console.log("button clicked");
-// }
