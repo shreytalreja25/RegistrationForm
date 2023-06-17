@@ -23,6 +23,36 @@ const products = [
     },
   ];
   
+// Attach an event listener to the search input field
+const searchInput = document.querySelector('.form-control');
+searchInput.addEventListener('input', handleSearch);
+
+function handleSearch(event) {
+  const searchTerm = event.target.value.toLowerCase(); // Retrieve the entered value and convert to lowercase
+  const matchingProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm)
+  ); // Filter products based on the entered value
+
+  const searchResultsBox = document.querySelector('.search-results');
+  searchResultsBox.innerHTML = ''; // Clear previous search results
+
+  if (searchTerm.length > 0 && matchingProducts.length > 0) {
+    // If there is a search term and matching products, generate and append the small box
+    const smallBox = document.createElement('div');
+    smallBox.classList.add('search-results-box');
+
+    matchingProducts.forEach((product) => {
+      const productName = document.createElement('p');
+      productName.textContent = product.name;
+      smallBox.appendChild(productName);
+    });
+
+    searchResultsBox.appendChild(smallBox);
+  }
+}
+
+
+
   // Generate the product cards dynamically from the products array
   function generateProductCards() {
     const productGrid = document.querySelector('.product-grid');
