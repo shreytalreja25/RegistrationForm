@@ -72,8 +72,15 @@ function handleSearch(event) {
       const listItem = document.createElement('li');
       const link = document.createElement('a');
       link.textContent = product.title;
+      link.href = "/productPage.html"
+      link.target = "_blank"
       listItem.appendChild(link);
       searchResultsDropdown.appendChild(listItem);
+
+      // Apply styling to the generated <li> items
+      listItem.style.display = 'block';
+      listItem.style.background = 'grey';
+      listItem.style.textAlign = 'center';
     });
     searchResultsDropdown.style.display = 'block'; // Show the dropdown
   } else {
