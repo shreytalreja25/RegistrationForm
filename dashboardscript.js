@@ -71,16 +71,26 @@ function handleSearch(event) {
     matchingProducts.forEach((product) => {
       const listItem = document.createElement('li');
       const link = document.createElement('a');
+      const searchImage = document.createElement('img');
       link.textContent = product.title;
       link.href = "/productPage.html"
       link.target = "_blank"
+      searchImage.src = "/assets/phone.jpg"
+      searchImage.style.height="40px";
+      searchImage.style.width="auto";
       listItem.appendChild(link);
+      listItem.appendChild(searchImage)
       searchResultsDropdown.appendChild(listItem);
 
       // Apply styling to the generated <li> items
-      listItem.style.display = 'block';
+      listItem.style.display = 'flex';
+      listItem.style.flexDirection = 'row-reverse';
+      listItem.style.justifyContent = 'space-around';
       listItem.style.background = 'grey';
       listItem.style.textAlign = 'center';
+      listItem.style.marginBottom = '2px';
+      listItem.style.width = '220px';
+      // listItem.style.
     });
     searchResultsDropdown.style.display = 'block'; // Show the dropdown
   } else {
