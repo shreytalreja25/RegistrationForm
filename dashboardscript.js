@@ -19,6 +19,7 @@ function generateProductCards() {
           card.id = product.id;
 
           const image = document.createElement('img');
+          //<img alt="iPhone 9" src="https://dummyjson.com/products"></img>
           image.src = product.thumbnail;
           image.alt = product.title;
           card.appendChild(image);
@@ -59,7 +60,7 @@ function generateProductCards() {
 generateProductCards();
 
 function handleSearch(event) {
-  const searchTerm = event.target.value.toLowerCase();
+  const searchTerm = event.target.value.toLowerCase(); //iph
   const matchingProducts = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm)
   );
@@ -75,7 +76,8 @@ function handleSearch(event) {
       link.textContent = product.title;
       link.href = "/productPage.html"
       link.target = "_blank"
-      searchImage.src = "/assets/phone.jpg"
+      // searchImage.src = "/assets/phone.jpg"
+      searchImage.src = `${product.thumbnail}`
       searchImage.style.height="40px";
       searchImage.style.width="auto";
       listItem.appendChild(link);
